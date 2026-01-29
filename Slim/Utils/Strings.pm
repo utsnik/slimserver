@@ -36,6 +36,7 @@ string()
 =cut
 
 use strict;
+use warnings;
 use Exporter::Lite;
 
 our @EXPORT_OK = qw(string cstring clientString);
