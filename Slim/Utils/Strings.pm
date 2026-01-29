@@ -346,7 +346,7 @@ sub parseStrings {
 	my $store = $args->{'storeString'} || \&storeString;
 
 	LINE: for my $line ( <$fh> ) {
-
+		$line =~ s/[\r\n]+$//;
 		$ln++;
 
 		# skip lines starting with # (comments?)
@@ -453,7 +453,7 @@ sub storeExtraStrings {
 	# This function determines if the string hash data has changed
 	my $hash_diff = sub {
 		for my $k ( keys %{ $_[1] } ) {
-			if ( !exists $_[0]->{$k} || $_[0]->{$k} ne $_[1]->{$k} ) {
+			if ( !exists $_[0]->{$k} || !defined $_[0]->{$k} || !defined $_[1]->{$k} || $_[0]->{$k} ne $_[1]->{$k} ) {
 				return 1;
 			}
 		}
@@ -524,7 +524,9 @@ Return localised string for token $token, or ''.
 =cut
 
 sub string {
-	my $token = uc(shift);
+	my $token = shift;
+	return '' unless defined $token;
+	$token = uc($token);
 
 	my $string = $defaultStrings->{$token};
 	logBacktrace("missing string $token") if ($token && !defined $string && $log->is_info);
@@ -585,7 +587,9 @@ Return boolean indicating whether $token exists.
 =cut
 
 sub stringExists {
-	my $token = uc(shift);
+	my $token = shift;
+	return 0 unless defined $token;
+	$token = uc($token);
 	return (defined $defaultStrings->{$token}) ? 1 : 0;
 }
 
@@ -597,7 +601,9 @@ The new definition is lost if the language is changed.
 =cut
 
 sub setString {
-	my $token = uc(shift);
+	my $token = shift;
+	return unless defined $token;
+	$token = uc($token);
 	my $string = shift;
 
 	main::DEBUGLOG && $log->debug("setString token: $token to $string");
@@ -617,7 +623,7 @@ sub defaultStrings {
 # get & set languages
 
 sub languageOptions {
-	return $strings->{langchoices};
+	return $strings->{langchoices} || {};
 }
 
 sub getLanguage {
@@ -725,12 +731,14 @@ sub setLocale {
 	# We set LC_COLLATE always to utf8 so that it can be used correctly within
 	# the collate function (perlcollate) for SQLite DB sorting, where the field values
 	# are always UTF-8
-	$locale = string(main::ISWINDOWS ? 'LOCALE_WIN' : 'LOCALE') . '.UTF-8';
+	my $l_token = main::ISWINDOWS ? 'LOCALE_WIN' : 'LOCALE';
+	my $l_string = string($l_token) || '';
+	$locale = $l_string . '.UTF-8';
 	setlocale( LC_COLLATE, $locale );
 }
 
 sub getLocales {
-	return $strings->{locales};
+	return $strings->{locales} || {};
 }
 
 1;

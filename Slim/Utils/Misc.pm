@@ -228,6 +228,10 @@ sub pathFromFileURL {
 		return $fileToPathCache->{$url};
 	}
 
+	if ($url =~ m|^///|) {
+		$url = "file:$url";
+	}
+
 	if ($url !~ /^file:\/\//i) {
 
 		logBacktrace("Path isn't a file URL: $url");
@@ -395,6 +399,7 @@ sub crackURL {
 
 	my ($user, $pass, $host, $port, $path) = ($1, $2, $3, $4, $5);
 
+	$path = '/' unless defined $path;
 	$path = '/' . $path if $path !~ m|^/|;
 	$port ||= ((Slim::Networking::Async::HTTP->hasSSL() && $string =~ /^https/) ? 443 : 80);
 
