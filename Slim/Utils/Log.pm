@@ -34,6 +34,7 @@ A wrapper around Log::Log4perl
 =cut
 
 use strict;
+use warnings;
 use base qw(Log::Log4perl::Logger);
 
 use Exporter::Lite;
