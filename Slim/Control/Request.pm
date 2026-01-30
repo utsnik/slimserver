@@ -435,6 +435,8 @@ use Slim::Utils::Log;
 use Slim::Utils::Misc;
 use Slim::Utils::Strings qw(cstring);
 
+require Slim::Control::Provider;
+
 our $dispatchDB = {};           # contains a multi-level hash pointing to
                                 # params and functions to call for each command or query
 
@@ -472,9 +474,9 @@ sub init {
 ######################################################################################################################################################################
 
 	addDispatch(['abortscan'],                                                                         [0, 0, 0, \&Slim::Control::Commands::abortScanCommand]);
-	addDispatch(['alarm',          '_cmd'],                                                            [1, 0, 1, \&Slim::Control::Commands::alarmCommand]);
-	addDispatch(['alarm',          'playlists',      '_index',     '_quantity'],                       [0, 1, 1, \&Slim::Control::Queries::alarmPlaylistsQuery]);
-	addDispatch(['alarms',         '_index',         '_quantity'],                                     [1, 1, 1, \&Slim::Control::Queries::alarmsQuery]);
+
+	Slim::Control::Provider->init();
+
 	addDispatch(['album',          '?'],                                                               [1, 1, 0, \&Slim::Control::Queries::cursonginfoQuery]);
 	addDispatch(['albums',         '_index',         '_quantity'],                                     [0, 1, 1, \&Slim::Control::Queries::albumsQuery]);
 	addDispatch(['artist',         '?'],                                                               [1, 1, 0, \&Slim::Control::Queries::cursonginfoQuery]);
