@@ -189,10 +189,28 @@ sub readTags {
 					}
 				}
 
-				($tags, my $ctOverride) = $tagReaderClass->getTag($filepath, $anchor);
+				# Bug: Scanner hangs on some files. Implement a timeout to skip them.
+				# SIGALRM is not supported on all platforms, so we use a safe eval/alarm block.
+				local $SIG{ALRM} = sub { die "TIMEOUT\n" };
+				alarm(10);
 
-				if ($ctOverride) {
-					$type = $ctOverride;
+				eval {
+					($tags, my $ctOverride) = $tagReaderClass->getTag($filepath, $anchor);
+
+					if ($ctOverride) {
+						$type = $ctOverride;
+					}
+				};
+
+				my $err = $@;
+				alarm(0);
+
+				if ($err) {
+					if ($err eq "TIMEOUT\n") {
+						$log->error("Timeout reading tags for $filepath. Skipping file.");
+						return {};
+					}
+					die $err;
 				}
 
 				$loadedTagClasses{$type} = 1;
@@ -304,12 +322,27 @@ sub sanitizeTagValues {
 
 					$value->[$i] =~ s/$Slim::Utils::Unicode::bomRE//;
 					$value->[$i] =~ s/\000$//;
+
+					# Bug: "Media scan terminated unexpectedly" due to overlong comments
+					# Truncate exceptionally large fields to prevent scanner crashes or OOM
+					if ( length($value->[$i]) > 65536 ) {
+						$log->warn("Truncating overlong tag $tag in $file (" . length($value->[$i]) . " bytes)");
+						$value->[$i] = substr($value->[$i], 0, 65536);
+					}
 				}
 
 			} else {
 
 				$value =~ s/$Slim::Utils::Unicode::bomRE//;
 				$value =~ s/\000$//;
+
+				# Bug: "Media scan terminated unexpectedly" due to overlong comments
+				# Truncate exceptionally large fields to prevent scanner crashes or OOM
+				if ( length($value) > 65536 ) {
+					$log->warn("Truncating overlong tag $tag in $file (" . length($value) . " bytes)");
+					$value = substr($value, 0, 65536);
+				}
+
 				$tags->{$tag} = $value;
 			}
 
