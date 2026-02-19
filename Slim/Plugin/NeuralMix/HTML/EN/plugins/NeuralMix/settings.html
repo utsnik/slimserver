@@ -1,0 +1,23 @@
+[% PROCESS settings/header.html %]
+
+	[% WRAPPER setting title="PLUGIN_NEURALMIX" desc="PLUGIN_NEURALMIX_DESC" %]
+		<div>
+			<b>NeuralMix Brain Status:</b> <span id="brain_status">Checking...</span><br/>
+			<b>Track Count:</b> <span id="brain_count">0</span>
+		</div>
+		<br/>
+		
+		<input type="text" class="stdedit" name="brain_url" id="brain_url" value="[% prefs.brain_url %]" size="40">
+		<label for="brain_url">Brain URL (Default: http://127.0.0.1:8090)</label>
+		
+		<hr>
+		<p>Use "Rescan Media Library" to feed the brain.</p>
+	[% END %]
+
+[% PROCESS settings/footer.html %]
+
+<script>
+// Simple status checker (client side)
+// Using pure JS fetch if browser supports it, or LMS might proxy. 
+// For now simple placeholder. Real status requires backend to inject variable.
+</script>

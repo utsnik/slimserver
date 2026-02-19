@@ -1,0 +1,5 @@
+PLUGIN_NEURALMIX
+	EN	NeuralMix AI
+
+PLUGIN_NEURALMIX_DESC
+	EN	AI-powered smart playlists using vector embeddings.

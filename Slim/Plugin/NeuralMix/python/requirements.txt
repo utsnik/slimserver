@@ -1,0 +1,7 @@
+fastapi==0.109.0
+uvicorn==0.27.0
+sentence-transformers==2.3.1
+chromadb==0.4.22
+# Using standard torch, but user might want to swap for --extra-index-url https://download.pytorch.org/whl/cpu
+torch
+numpy<2.0.0

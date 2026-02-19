@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<extension>
+	<id>neuralmix-external-plugin</id>
+	<name>NeuralMix</name>
+	<module>Plugins::NeuralMix::Plugin</module>
+	<version>1.2.0</version>
+	<description>AI-powered smart playlists using vector embeddings.</description>
+	<creator>Antigravity</creator>
+	<category>tools</category>
+
+	<defaultState>enabled</defaultState>
+
+	<targetApplication>
+		<id>Lyrion Music Server</id>
+		<minVersion>8.0</minVersion>
+		<maxVersion>*</maxVersion>
+	</targetApplication>
+</extension>
