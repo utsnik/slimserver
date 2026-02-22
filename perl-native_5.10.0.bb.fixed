@@ -47,9 +47,10 @@ do_configure () {
         -Ud_csh \
         -Uusesfio \
         -Uusenm -des
-    # Robustly inject -lm into config.sh
-    sed -i "s|^libs=.*|libs='-lm'|" config.sh
-    sed -i "s|^perllibs=.*|perllibs='-lnsl -ldl -lm -lcrypt -lutil -lpthread -lc'|" config.sh
+    # Robustly inject -lm and -lrt into config.sh
+    # miniperl needs -lm, Time::HiRes needs -lrt
+    sed -i "s|^libs=.*|libs='-lm -lrt'|" config.sh
+    sed -i "s|^perllibs=.*|perllibs='-lnsl -ldl -lm -lrt -lcrypt -lutil -lpthread -lc'|" config.sh
     # Manually regenerate Makefile from patched config.sh
     sh ./Makefile.SH
     # Still apply the staging path fixes
