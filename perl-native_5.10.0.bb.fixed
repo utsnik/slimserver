@@ -21,6 +21,7 @@ do_configure () {
         -Dcf_by="Open Embedded" \
         -Dprefix=${prefix} \
         -Dvendorprefix=${prefix} \
+        -Dvendorprefix=${prefix} \
         -Dsiteprefix=${prefix} \
         \
         -Dprivlib=${STAGING_LIBDIR}/perl/${PV} \
@@ -46,8 +47,9 @@ do_configure () {
         -Ud_csh \
         -Uusesfio \
         -Uusenm -des
-    # Use python for reliable patching of config.sh to avoid shell/sed quoting issues
-    python3 -c "import os; p='config.sh'; c=open(p).read(); open(p,'w').write(c.replace('perllibs=', 'libs=\'-lm\'\nperllibs='))"
+    # Force -lm into libs to ensure miniperl links correctly
+    sed -i 's/^libs =.*/libs = -lm/' Makefile
+    grep -q "^libs=" config.sh || sed -i "/^perllibs=/i libs='-lm'" config.sh
     # Still apply the staging path fixes
     sed -i 's!${STAGING_DIR}/bin!${STAGING_BINDIR}!g' config.sh
     sed -i 's!${STAGING_DIR}/lib!${STAGING_LIBDIR}!g' config.sh
