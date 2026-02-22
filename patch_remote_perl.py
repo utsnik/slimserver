@@ -1,5 +1,4 @@
 import os
-import re
 
 patch_path = '/home/utking/squeezeos-build/src/poky/meta-squeezeos/packages/perl/perl-native_5.10.0.bb'
 
@@ -14,8 +13,8 @@ new_lines = []
 found = False
 for line in lines:
     if "s!${STAGING_DIR}/lib!${STAGING_LIBDIR}!" in line and "config.sh" in line:
-        # Replace the broken line with the correct one
-        newline = "         s!${STAGING_DIR}/lib!${STAGING_LIBDIR}!; s!^libs=''!libs=''-lm !' < config.sh > config.sh.new\n"
+        # Define libs by prepending it to perllibs in the sed command
+        newline = "         s!${STAGING_DIR}/lib!${STAGING_LIBDIR}!; s!^perllibs=!libs='-lm' ; perllibs=!' < config.sh > config.sh.new\n"
         new_lines.append(newline)
         found = True
     else:
@@ -24,7 +23,7 @@ for line in lines:
 if found:
     with open(patch_path, 'w') as f:
         f.writelines(new_lines)
-    print("Successfully fixed the syntax error in perl-native recipe.")
+    print("Successfully patched perl-native recipe with libs definition.")
 else:
     print("Error: Target pattern not found in recipe.")
     exit(1)
