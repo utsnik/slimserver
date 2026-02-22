@@ -17,7 +17,7 @@ do_configure () {
     ./Configure \
         -Dcc="${CC}" \
         -Dcflags="${CFLAGS}" \
-        -Dldflags="${LDFLAGS} -lm" \
+        -Dldflags="${LDFLAGS}" \
         -Dcf_by="Open Embedded" \
         -Dprefix=${prefix} \
         -Dvendorprefix=${prefix} \
@@ -47,9 +47,11 @@ do_configure () {
         -Ud_csh \
         -Uusesfio \
         -Uusenm -des
-    # Force -lm into libs to ensure miniperl links correctly
-    sed -i 's/^libs =.*/libs = -lm/' Makefile
-    grep -q "^libs=" config.sh || sed -i "/^perllibs=/i libs='-lm'" config.sh
+    # Robustly inject -lm into config.sh
+    sed -i "s|^libs=.*|libs='-lm'|" config.sh
+    sed -i "s|^perllibs=.*|perllibs='-lnsl -ldl -lm -lcrypt -lutil -lpthread -lc'|" config.sh
+    # Manually regenerate Makefile from patched config.sh
+    sh ./Makefile.SH
     # Still apply the staging path fixes
     sed -i 's!${STAGING_DIR}/bin!${STAGING_BINDIR}!g' config.sh
     sed -i 's!${STAGING_DIR}/lib!${STAGING_LIBDIR}!g' config.sh
