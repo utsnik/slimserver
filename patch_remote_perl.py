@@ -12,9 +12,10 @@ with open(patch_path, 'r') as f:
 new_lines = []
 found = False
 for line in lines:
-    if "s!${STAGING_DIR}/lib!${STAGING_LIBDIR}!" in line and "config.sh" in line:
-        # Define libs by prepending it to perllibs in the sed command
-        newline = "         s!${STAGING_DIR}/lib!${STAGING_LIBDIR}!; s!^perllibs=!libs='-lm' ; perllibs=!' < config.sh > config.sh.new\n"
+    if "config.sh > config.sh.new" in line:
+        # Use a simpler sed that just works
+        # We replace the entire sed line with one that adds libs='-lm'
+        newline = "    sed 's!${STAGING_DIR}/bin!${STAGING_BINDIR}!;s!${STAGING_DIR}/lib!${STAGING_LIBDIR}!;s!^perllibs=!libs=\"-lm \"; perllibs=!' < config.sh > config.sh.new\n"
         new_lines.append(newline)
         found = True
     else:
@@ -23,7 +24,7 @@ for line in lines:
 if found:
     with open(patch_path, 'w') as f:
         f.writelines(new_lines)
-    print("Successfully patched perl-native recipe with libs definition.")
+    print("Successfully patched perl-native recipe with robust libs definition.")
 else:
     print("Error: Target pattern not found in recipe.")
     exit(1)
