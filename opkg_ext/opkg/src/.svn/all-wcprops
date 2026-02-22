@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/svn/!svn/ver/515/trunk/src
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/499/trunk/src/Makefile.am
+END
+opkg-cl.c
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/515/trunk/src/opkg-cl.c
+END

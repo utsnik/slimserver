@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/503/trunk/libbb
+END
+wfopen.c
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/3/trunk/libbb/wfopen.c
+END
+safe_strncpy.c
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/3/trunk/libbb/safe_strncpy.c
+END
+copy_file_chunk.c
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/3/trunk/libbb/copy_file_chunk.c
+END
+gz_open.c
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/471/trunk/libbb/gz_open.c
+END
+make_directory.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/385/trunk/libbb/make_directory.c
+END
+all_read.c
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/3/trunk/libbb/all_read.c
+END
+unzip.c
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/471/trunk/libbb/unzip.c
+END
+xfuncs.c
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/471/trunk/libbb/xfuncs.c
+END
+copy_file.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/314/trunk/libbb/copy_file.c
+END
+mode_string.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/3/trunk/libbb/mode_string.c
+END
+parse_mode.c
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/3/trunk/libbb/parse_mode.c
+END
+libbb.h
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/471/trunk/libbb/libbb.h
+END
+xreadlink.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/471/trunk/libbb/xreadlink.c
+END
+concat_path_file.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/3/trunk/libbb/concat_path_file.c
+END
+time_string.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/3/trunk/libbb/time_string.c
+END
+unarchive.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/503/trunk/libbb/unarchive.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/471/trunk/libbb/Makefile.am
+END
+last_char_is.c
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/3/trunk/libbb/last_char_is.c
+END

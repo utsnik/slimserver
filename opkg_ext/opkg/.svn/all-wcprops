@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 23
+/svn/!svn/ver/518/trunk
+END
+ChangeLog.ipkg
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/45/trunk/ChangeLog.ipkg
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/511/trunk/configure.ac
+END
+AUTHORS
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/367/trunk/AUTHORS
+END
+TODO
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/!svn/ver/371/trunk/TODO
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/370/trunk/.gitignore
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/8/trunk/INSTALL
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/152/trunk/ChangeLog
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/3/trunk/COPYING
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/364/trunk/Makefile.am
+END
+autogen.sh
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/152/trunk/autogen.sh
+END
+NEWS
+K 25
+svn:wc:ra_dav:version-url
+V 26
+/svn/!svn/ver/3/trunk/NEWS
+END
+libopkg.pc.in
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/8/trunk/libopkg.pc.in
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/367/trunk/README
+END
+CONTRIBUTORS
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/376/trunk/CONTRIBUTORS
+END

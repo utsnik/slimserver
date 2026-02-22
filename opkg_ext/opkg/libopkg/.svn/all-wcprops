@@ -1,0 +1,443 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/518/trunk/libopkg
+END
+nv_pair_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/260/trunk/libopkg/nv_pair_list.h
+END
+hash_table.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/377/trunk/libopkg/hash_table.h
+END
+opkg_defines.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/141/trunk/libopkg/opkg_defines.h
+END
+opkg_pathfinder.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/504/trunk/libopkg/opkg_pathfinder.c
+END
+opkg_pathfinder.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/279/trunk/libopkg/opkg_pathfinder.h
+END
+pkg_parse.c
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/507/trunk/libopkg/pkg_parse.c
+END
+pkg_extract.c
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/504/trunk/libopkg/pkg_extract.c
+END
+pkg_vec.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/505/trunk/libopkg/pkg_vec.c
+END
+pkg_parse.h
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/289/trunk/libopkg/pkg_parse.h
+END
+pkg_extract.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/322/trunk/libopkg/pkg_extract.h
+END
+pkg_vec.h
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/471/trunk/libopkg/pkg_vec.h
+END
+opkg_cmd.c
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/505/trunk/libopkg/opkg_cmd.c
+END
+pkg_src_list.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/504/trunk/libopkg/pkg_src_list.c
+END
+pkg_hash.c
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/507/trunk/libopkg/pkg_hash.c
+END
+md5.c
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/53/trunk/libopkg/md5.c
+END
+pkg_src_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/260/trunk/libopkg/pkg_src_list.h
+END
+opkg_cmd.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/504/trunk/libopkg/opkg_cmd.h
+END
+pkg_hash.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/504/trunk/libopkg/pkg_hash.h
+END
+md5.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/53/trunk/libopkg/md5.h
+END
+nv_pair.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/504/trunk/libopkg/nv_pair.c
+END
+sprintf_alloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/504/trunk/libopkg/sprintf_alloc.c
+END
+pkg_dest.c
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/504/trunk/libopkg/pkg_dest.c
+END
+nv_pair.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/67/trunk/libopkg/nv_pair.h
+END
+sprintf_alloc.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/33/trunk/libopkg/sprintf_alloc.h
+END
+pkg_dest.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/504/trunk/libopkg/pkg_dest.h
+END
+opkg_upgrade.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/504/trunk/libopkg/opkg_upgrade.c
+END
+opkg_upgrade.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/471/trunk/libopkg/opkg_upgrade.h
+END
+opkg_remove.c
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/504/trunk/libopkg/opkg_remove.c
+END
+opkg_utils.c
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/504/trunk/libopkg/opkg_utils.c
+END
+list.h
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/166/trunk/libopkg/list.h
+END
+opkg_remove.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/471/trunk/libopkg/opkg_remove.h
+END
+opkg_utils.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/471/trunk/libopkg/opkg_utils.h
+END
+conffile.c
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/504/trunk/libopkg/conffile.c
+END
+conffile.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/504/trunk/libopkg/conffile.h
+END
+pkg_dest_list.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/504/trunk/libopkg/pkg_dest_list.c
+END
+pkg_dest_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/260/trunk/libopkg/pkg_dest_list.h
+END
+opkg.c
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/510/trunk/libopkg/opkg.c
+END
+opkg_configure.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/504/trunk/libopkg/opkg_configure.c
+END
+str_list.c
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/504/trunk/libopkg/str_list.c
+END
+opkg_message.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/504/trunk/libopkg/opkg_message.c
+END
+opkg.h
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/482/trunk/libopkg/opkg.h
+END
+opkg_conf.c
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/518/trunk/libopkg/opkg_conf.c
+END
+opkg_configure.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/504/trunk/libopkg/opkg_configure.h
+END
+sha256.c
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/223/trunk/libopkg/sha256.c
+END
+str_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/260/trunk/libopkg/str_list.h
+END
+opkg_message.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/471/trunk/libopkg/opkg_message.h
+END
+opkg_conf.h
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/515/trunk/libopkg/opkg_conf.h
+END
+xsystem.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/504/trunk/libopkg/xsystem.c
+END
+file_util.c
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/505/trunk/libopkg/file_util.c
+END
+sha256.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/223/trunk/libopkg/sha256.h
+END
+file_util.h
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/311/trunk/libopkg/file_util.h
+END
+xsystem.h
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/504/trunk/libopkg/xsystem.h
+END
+pkg_depends.c
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/515/trunk/libopkg/pkg_depends.c
+END
+opkg_download.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/514/trunk/libopkg/opkg_download.c
+END
+pkg_depends.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/504/trunk/libopkg/pkg_depends.h
+END
+void_list.c
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/504/trunk/libopkg/void_list.c
+END
+opkg_download.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/505/trunk/libopkg/opkg_download.h
+END
+void_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/260/trunk/libopkg/void_list.h
+END
+xregex.c
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/504/trunk/libopkg/xregex.c
+END
+active_list.c
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/471/trunk/libopkg/active_list.c
+END
+xregex.h
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/33/trunk/libopkg/xregex.h
+END
+active_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/471/trunk/libopkg/active_list.h
+END
+conffile_list.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/504/trunk/libopkg/conffile_list.c
+END
+pkg.c
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/516/trunk/libopkg/pkg.c
+END
+conffile_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/260/trunk/libopkg/conffile_list.h
+END
+pkg.h
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/505/trunk/libopkg/pkg.h
+END
+opkg_install.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/515/trunk/libopkg/opkg_install.c
+END
+pkg_src.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/504/trunk/libopkg/pkg_src.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/511/trunk/libopkg/Makefile.am
+END
+nv_pair_list.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/504/trunk/libopkg/nv_pair_list.c
+END
+hash_table.c
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/471/trunk/libopkg/hash_table.c
+END
+opkg_install.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/471/trunk/libopkg/opkg_install.h
+END
+pkg_src.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/67/trunk/libopkg/pkg_src.h
+END

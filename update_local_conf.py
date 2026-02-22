@@ -6,13 +6,21 @@ if not os.path.exists(conf_path):
     print(f"Error: {conf_path} not found")
     exit(1)
 
-overrides = [
-    '\n# Direct fetch from GitHub to bypass broken local file protocol\n',
-    'SQUEEZEOS_SVN = "git://github.com/ralph-irving/squeezeos.git;branch=public/7.8;protocol=https"\n',
-    'SQUEEZEPLAY_SCM = "git://github.com/ralph-irving/squeezeos-squeezeplay.git;branch=public/7.8;protocol=https"\n'
-]
+with open(conf_path, 'r') as f:
+    lines = f.readlines()
 
-with open(conf_path, 'a') as f:
-    f.writelines(overrides)
+new_lines = []
+for line in lines:
+    # Remove any SQUEEZEOS_SVN or SQUEEZEPLAY_SCM or GIT overrides I added
+    if '# Direct fetch from GitHub' in line or \
+       'SQUEEZEOS_SVN =' in line or \
+       'SQUEEZEPLAY_SCM =' in line or \
+       'GIT =' in line or \
+       '# Fix git fetch' in line:
+        continue
+    new_lines.append(line)
 
-print("Successfully appended GitHub overrides to local.conf")
+with open(conf_path, 'w') as f:
+    f.writelines(new_lines)
+
+print("Successfully cleaned local.conf")

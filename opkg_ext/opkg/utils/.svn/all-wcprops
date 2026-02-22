@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/439/trunk/utils
+END
+opkg-key
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/106/trunk/utils/opkg-key
+END
+update-alternatives.in
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/439/trunk/utils/update-alternatives.in
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/402/trunk/utils/Makefile.am
+END
