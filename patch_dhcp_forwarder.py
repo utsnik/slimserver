@@ -7,16 +7,14 @@ if not os.path.exists(bb_path):
     exit(1)
 
 with open(bb_path, 'r') as f:
-    lines = f.readlines()
+    content = f.read()
 
-new_lines = []
-for line in lines:
-    if line.startswith('SRC_URI ='):
-        new_lines.append('SRC_URI = "file:///home/squeezeos/poky/sources/dhcp-forwarder-${PV}.tar.bz2"\n')
-    else:
-        new_lines.append(line)
+content = content.replace(
+    'http://savannah.nongnu.org/download/dhcp-fwd/dhcp-forwarder-${PV}.tar.bz2',
+    'file:///home/squeezeos/poky/sources/dhcp-forwarder-${PV}.tar.bz2'
+)
 
 with open(bb_path, 'w') as f:
-    f.writelines(new_lines)
+    f.write(content)
 
-print("Successfully patched dhcp-forwarder_0.8.bb to use local file source")
+print("Successfully patched dhcp-forwarder_0.8.bb with precise string replacement")
