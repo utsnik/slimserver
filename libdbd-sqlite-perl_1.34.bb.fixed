@@ -1,7 +1,7 @@
 DESCRIPTION = "DBD::SQLite - SQLite driver for the Perl5 Database Interface (DBI)"
 SECTION = "libs"
 LICENSE = "Artistic|GPL"
-PR = "r20"
+PR = "r23"
 
 FULL_OPTIMIZATION = "-fexpensive-optimizations -fomit-frame-pointer -frename-registers -O2 -ggdb -feliminate-unused-debug-types"
 
@@ -41,9 +41,13 @@ do_configure() {
     yes '' | ${STAGING_BINDIR_NATIVE}/perl Makefile.PL ${EXTRA_CPANFLAGS}
     if [ "${BUILD_SYS}" != "${HOST_SYS}" ]; then
         . ${STAGING_DIR}/${TARGET_SYS}/perl/config.sh
+        # Force LDDLFLAGS to use target staging
         sed -i -e "s:\(LDDLFLAGS.*\)${STAGING_LIBDIR_NATIVE}:\1${STAGING_LIBDIR}:" Makefile
-        # Fix hardcoded paths that cause do_compile to fail
-        sed -i -e "s:/usr/lib/perl/5.10:${STAGING_LIBDIR}/perl/5.10.0:g" Makefile
+        # Fix hardcoded paths in Makefile using explicit absolute paths to staging
+        # We use a leading space or '=' to avoid matching already replaced paths
+        sed -i -e "s: /usr/lib/perl/5.10: ${STAGING_LIBDIR}/perl/5.10.0:g" Makefile
+        sed -i -e "s:= /usr/lib/perl/5.10:= ${STAGING_LIBDIR}/perl/5.10.0:g" Makefile
+        sed -i -e "s:/usr/share/perl/5.10:${STAGING_LIBDIR}/perl/5.10.0:g" Makefile
         sed -i -e "s:/usr/lib/perl5:${STAGING_LIBDIR}/perl5:g" Makefile
     fi
 }
