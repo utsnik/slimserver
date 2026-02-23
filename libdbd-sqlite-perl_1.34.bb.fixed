@@ -1,7 +1,7 @@
 DESCRIPTION = "DBD::SQLite - SQLite driver for the Perl5 Database Interface (DBI)"
 SECTION = "libs"
 LICENSE = "Artistic|GPL"
-PR = "r23"
+PR = "r24"
 
 FULL_OPTIMIZATION = "-fexpensive-optimizations -fomit-frame-pointer -frename-registers -O2 -ggdb -feliminate-unused-debug-types"
 
@@ -44,10 +44,11 @@ do_configure() {
         # Force LDDLFLAGS to use target staging
         sed -i -e "s:\(LDDLFLAGS.*\)${STAGING_LIBDIR_NATIVE}:\1${STAGING_LIBDIR}:" Makefile
         # Fix hardcoded paths in Makefile using explicit absolute paths to staging
-        # We use a leading space or '=' to avoid matching already replaced paths
         sed -i -e "s: /usr/lib/perl/5.10: ${STAGING_LIBDIR}/perl/5.10.0:g" Makefile
         sed -i -e "s:= /usr/lib/perl/5.10:= ${STAGING_LIBDIR}/perl/5.10.0:g" Makefile
         sed -i -e "s:/usr/share/perl/5.10:${STAGING_LIBDIR}/perl/5.10.0:g" Makefile
         sed -i -e "s:/usr/lib/perl5:${STAGING_LIBDIR}/perl5:g" Makefile
+        # Fix XSUBPP typemap paths which point to target instead of native staging
+        sed -i -e "s:${STAGING_LIBDIR}/perl/5.10.0/ExtUtils/typemap:${STAGING_LIBDIR_NATIVE}/perl/5.10.0/ExtUtils/typemap:g" Makefile
     fi
 }
