@@ -1,7 +1,7 @@
 DESCRIPTION = "DBD::SQLite - SQLite driver for the Perl5 Database Interface (DBI)"
 SECTION = "libs"
 LICENSE = "Artistic|GPL"
-PR = "r24"
+PR = "r25"
 
 FULL_OPTIMIZATION = "-fexpensive-optimizations -fomit-frame-pointer -frename-registers -O2 -ggdb -feliminate-unused-debug-types"
 
@@ -33,9 +33,11 @@ do_configure() {
     export PATH="${STAGING_BINDIR_NATIVE}:$PATH"
     
     # Bypass DBI version check in Makefile.PL which fails due to native perl dlopen issues
-    sed -i "s/require DBI;/my \$DBI_required = 0; eval 'package DBI; sub VERSION { 1.616 } package DBI::DBD; sub dbd_postamble { \"\" }';/" Makefile.PL
+    # Mock DBI and DBI::DBD to provide a functional dbd_postamble that generates SQLite.xsi
+    DRIVER_XST="${STAGING_LIBDIR_NATIVE}/perl/5.10.0/auto/DBI/Driver.xst"
+    sed -i "s/require DBI;/my \$DBI_required = 0; eval 'package DBI; sub VERSION { 1.616 } package DBI::DBD; sub dbd_postamble { \"SQLite.xsi: $DRIVER_XST\\\\n\\\\t\\\\$(PERL) -p -e \\\\\"s\/~DRIVER~\/SQLite\/g\\\\\" $DRIVER_XST > SQLite.xsi\\\\n\" }';/g" Makefile.PL
     sed -i "s/DBI->VERSION/1.616/g" Makefile.PL
-    sed -i "s/require DBI::DBD;/#require DBI::DBD;/" Makefile.PL
+    sed -i "s/require DBI::DBD;/#require DBI::DBD;/g" Makefile.PL
     
     # Use absolute path to staged perl
     yes '' | ${STAGING_BINDIR_NATIVE}/perl Makefile.PL ${EXTRA_CPANFLAGS}
