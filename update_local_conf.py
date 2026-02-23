@@ -11,23 +11,24 @@ with open(conf_path, 'r') as f:
 
 new_lines = []
 for line in lines:
-    # Remove any previous entries related to my fixes
-    if '# SqueezeOS Build Patch Overrides' in line or \
-       'DL_DIR =' in line or \
+    # Remove any SQUEEZEOS_SVN or SQUEEZEPLAY_SCM or GIT overrides or broken PREMIRRORS
+    if '# Direct fetch from GitHub' in line or \
+       'SQUEEZEOS_SVN =' in line or \
+       'SQUEEZEPLAY_SCM =' in line or \
        'GIT =' in line or \
-       'PREMIRRORS' in line or \
-       'http://downloads.sourceforge.net/fuse/fuse-2.7.2.tar.gz' in line:
+       '# Fix git fetch' in line or \
+       'DL_DIR =' in line or \
+       'PREMIRRORS_append =' in line or \
+       '# SqueezeOS Build Patch Overrides' in line:
         continue
     new_lines.append(line)
 
-# Add definitive overrides
+# Add ONLY the working overrides (absolute DL_DIR and GIT wrapper)
 new_lines.append('\n# SqueezeOS Build Patch Overrides\n')
 new_lines.append('DL_DIR = "/home/squeezeos/poky/sources"\n')
 new_lines.append('GIT = "/home/squeezeos/git_wrapper.sh"\n')
-# Force fuse to use the local mirror
-new_lines.append('PREMIRRORS_append = " http://downloads.sourceforge.net/fuse/.* file:///home/squeezeos/poky/sources/ \\n "\n')
 
 with open(conf_path, 'w') as f:
     f.writelines(new_lines)
 
-print("Successfully updated local.conf with PREMIRRORS for fuse")
+print("Successfully cleaned local.conf of broken PREMIRRORS")
