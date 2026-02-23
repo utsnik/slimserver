@@ -42,5 +42,8 @@ do_configure() {
     if [ "${BUILD_SYS}" != "${HOST_SYS}" ]; then
         . ${STAGING_DIR}/${TARGET_SYS}/perl/config.sh
         sed -i -e "s:\(LDDLFLAGS.*\)${STAGING_LIBDIR_NATIVE}:\1${STAGING_LIBDIR}:" Makefile
+        # Fix hardcoded paths that cause do_compile to fail
+        sed -i -e "s:/usr/lib/perl/5.10:${STAGING_LIBDIR}/perl/5.10.0:g" Makefile
+        sed -i -e "s:/usr/lib/perl5:${STAGING_LIBDIR}/perl5:g" Makefile
     fi
 }
