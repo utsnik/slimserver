@@ -8,7 +8,7 @@
 IMAGE_SQUEEZEOS_BOARD_VERSION ?= "10"
 IMAGE_SQUEEZEOS_EXTRA_VERSION ?= ""
 
-squeezeos_squeeze_image() {
+do_squeezeos_image() {
 	# Create a temporary directory
 	tmpdir=`mktemp -d`
 	if [ -z "${tmpdir}" ]; then
@@ -17,7 +17,7 @@ squeezeos_squeeze_image() {
 	fi
 
 	# Copy files
-	cp ${DEPLOY_DIR_IMAGE}/zImage${IMAGE_SQUEEZEOS_EXTRA_VERSION} ${tmpdir}/zImage${IMAGE_SQUEEZEOS_EXTRA_VERSION}
+	cp ${DEPLOY_DIR_IMAGE}/zImage-${MACHINE}.bin ${tmpdir}/zImage${IMAGE_SQUEEZEOS_EXTRA_VERSION}
 	cp ${DEPLOY_DIR_IMAGE}/${ROOTFS_IMAGE_NAME} ${tmpdir}/root.cramfs
 
 	# Try deploy dir first (survives rootfs purge), then rootfs
