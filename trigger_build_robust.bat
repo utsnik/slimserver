@@ -1,4 +1,0 @@
-@echo off
-echo Starting Remote Build for Baby V9 (Optimized)...
-ssh -o StrictHostKeyChecking=no -i C:\Users\Igland\.ssh\oracle_key utking@10.1.4.164 "export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin; if ! docker images | grep -q squeezeos_builder; then docker load -i /home/utking/squeezeos_builder.tar.gz; fi; cd /home/utking/squeezeos-build/src/poky && nohup docker run --rm --user 1000:1000 -e HOME=/home/squeezeos -v /home/utking/squeezeos-build/src:/home/squeezeos/ squeezeos_builder /bin/bash -c 'whoami && mkdir -p /home/squeezeos/build/conf && touch /home/squeezeos/build/conf/sanity.conf && git config --global url.\"https://\".insteadOf git:// && cd poky && rm -rf build/tmp-baby && cp build/conf/local.conf.sample ../build/conf/local.conf && source ./poky-init-build-env ../build && MACHINE=baby bitbake squeezeos-image' > /tmp/squeezeos_build_baby_v9.log 2>&1 &"
-echo Robust V9 Baby build command sent via SSH.
